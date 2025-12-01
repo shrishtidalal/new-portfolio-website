@@ -96,7 +96,7 @@ const about: About = {
     description: (
       <>
         Hello! 👋 I'm Shrishti. I recently graduated with simultaneous degrees in Mathematics and Computer Science from the University of California, Berkeley. 
-        I am currently working in options trading at Milliman. I was formerly a research assistant at the Helen Wills Neuroscience Institute.
+        I am currently working in options trading at Milliman. I was formerly a research assistant at the Helen Wills Neuroscience Institute, and a visiting student at the Toyota Technological Institute at Chicago (TTIC).
         <br />
         <br />
         My research interests lie in applying math to understand thought and vice versa. 
