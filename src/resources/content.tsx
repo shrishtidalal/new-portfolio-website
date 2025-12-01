@@ -1,49 +1,40 @@
-import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
+import type { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
 import { Line, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
-  firstName: "Selene",
-  lastName: "Yu",
-  name: `Selene Yu`,
-  role: "Design Engineer",
+  firstName: "Shrishti",
+  lastName: "Dalal",
+  name: "Shrishti Dalal",
+  role: "Mathematics & Computer Science Student",
   avatar: "/images/avatar.jpg",
-  email: "example@gmail.com",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  email: "shrishti.dalal@berkeley.edu",
+  location: "America/Los_Angeles", // Berkeley, California
+  languages: ["English"],
 };
 
 const newsletter: Newsletter = {
-  display: true,
+  display: false, // Set to true if you want to show newsletter signup
   title: <>Subscribe to {person.firstName}'s Newsletter</>,
-  description: <>My weekly newsletter about creativity and engineering</>,
+  description: <>My weekly newsletter about mathematics, computer science, and research</>,
 };
 
 const social: Social = [
-  // Links are automatically displayed.
-  // Import new icons in /once-ui/icons.ts
-  // Set essentials: true for links you want to show on the about page
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/once-ui-system",
+    link: "https://github.com/shrishtidalal",
     essential: true,
   },
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/company/once-ui/",
+    link: "https://linkedin.com/in/shrishti-dalal",
     essential: true,
   },
   {
-    name: "Instagram",
-    icon: "instagram",
-    link: "https://www.instagram.com/once_ui/",
-    essential: false,
-  },
-  {
-    name: "Threads",
-    icon: "threads",
-    link: "https://www.threads.com/@once_ui",
+    name: "Twitter",
+    icon: "twitter",
+    link: "https://twitter.com/shishdalal1",
     essential: true,
   },
   {
@@ -58,26 +49,28 @@ const home: Home = {
   path: "/",
   image: "/images/og/home.jpg",
   label: "Home",
-  title: `${person.name}'s Portfolio`,
-  description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Building bridges between design and code</>,
+  title: `${person.name} - Academic Portfolio`,
+  description: `Portfolio of ${person.name}, ${person.role} at UC Berkeley. Research, projects, and work in mathematics, computer science, and economics.`,
+  headline: <>Math. Trading. Software. Education. </>,
   featured: {
-    display: true,
+    display: false, // Set to true and add project slug when you have a featured project
     title: (
       <Row gap="12" vertical="center">
-        <strong className="ml-4">Once UI</strong>{" "}
+        <strong className="ml-4">Featured Project</strong>{" "}
         <Line background="brand-alpha-strong" vert height="20" />
         <Text marginRight="4" onBackground="brand-medium">
           Featured work
         </Text>
       </Row>
     ),
-    href: "/work/building-once-ui-a-customizable-design-system",
+    href: "/work/expander-graph-visualization-tool",
   },
   subline: (
     <>
-    I'm Selene, a design engineer at <Text as="span" size="xl" weight="strong">ONCE UI</Text>, where I craft intuitive <br /> user experiences. After hours, I build my own projects.
-</>
+      Welcome! I'm {person.firstName}, a recent graduate of Computer Science and Applied Mathematics at{" "}
+      <Text as="span" size="xl" weight="strong">UC Berkeley</Text>,{" "} currently working in equity options trading in Chicago.
+      <br />
+    </>
   ),
 };
 
@@ -85,147 +78,272 @@ const about: About = {
   path: "/about",
   label: "About",
   title: `About – ${person.name}`,
-  description: `Meet ${person.name}, ${person.role} from ${person.location}`,
+  description: `Meet ${person.name}, ${person.role} at UC Berkeley. Research in mathematics and computer science, with experience in computational psychiatry, quantitative finance, and aerospace engineering.`,
   tableOfContent: {
-    display: true,
+    display: true, // TODO: Set to false to hide table of contents
     subItems: false,
   },
   avatar: {
-    display: true,
+    display: true, // TODO: Set to false to hide avatar
   },
   calendar: {
-    display: true,
-    link: "https://cal.com",
+    display: false, // Set to true and add your calendar link if you want to show it
+    link: "https://cal.com/yourusername",
   },
   intro: {
     display: true,
     title: "Introduction",
     description: (
       <>
-        Selene is a Jakarta-based design engineer with a passion for transforming complex challenges
-        into simple, elegant design solutions. Her work spans digital interfaces, interactive
-        experiences, and the convergence of design and technology.
+        Hello! 👋 I'm Shrishti. I recently graduated with simultaneous degrees in Mathematics and Computer Science from the University of California, Berkeley. 
+        I am currently working in options trading at Milliman. I was formerly a research assistant at the Helen Wills Neuroscience Institute.
+        <br />
+        <br />
+        My research interests lie in applying math to understand thought and vice versa. 
+        Feel free to reach out about theory, computation, and everything in between.
       </>
     ),
   },
   work: {
-    display: true, // set to false to hide this section
+    display: true,
     title: "Work Experience",
     experiences: [
       {
-        company: "FLY",
-        timeframe: "2022 - Present",
-        role: "Senior Design Engineer",
+        company: "Milliman",
+        timeframe: "June 2025 - Present",
+        role: "Trading @ Milliman",
+        link: "https://frm.milliman.com/en",
         achievements: [
-          <>
-            Redesigned the UI/UX for the FLY platform, resulting in a 20% increase in user
-            engagement and 30% faster load times.
-          </>,
-          <>
-            Spearheaded the integration of AI tools into design workflows, enabling designers to
-            iterate 50% faster.
-          </>,
+          "Derivatives trading, technology and risk management.",
         ],
-        images: [
-          // optional: leave the array empty if you don't want to display images
-          {
-            src: "/images/projects/project-01/cover-01.jpg",
-            alt: "Once UI Project",
-            width: 16,
-            height: 9,
-          },
-        ],
+        images: [],
       },
       {
-        company: "Creativ3",
-        timeframe: "2018 - 2022",
-        role: "Lead Designer",
+        company: "Federal Home Loan Bank of Chicago",
+        timeframe: "May 2024 - August 2024",
+        role: "Quant Market Risk @ FHLBC",
+        link: "https://www.fhlbc.com/",
         achievements: [
-          <>
-            Developed a design system that unified the brand across multiple platforms, improving
-            design consistency by 40%.
-          </>,
-          <>
-            Led a cross-functional team to launch a new product line, contributing to a 15% increase
-            in overall company revenue.
-          </>,
+          "Income simulation modeling team. Automation & data.",
         ],
         images: [],
       },
     ],
   },
   studies: {
-    display: true, // set to false to hide this section
-    title: "Studies",
+    display: true,
+    title: "Education",
     institutions: [
       {
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
+        name: "University of California, Berkeley",
+        description: (
+          <>
+            B.A. Computer Science 
+            <br />
+            B.A. Applied Mathematics (conc. Economics)
+            <br />
+            <br />
+            <strong>Coursework:</strong> Computer Architecture, Algorithms, Data Structures, Computer Security, Machine Learning, 
+            Artificial Intelligence, Abstract Algebra, Probability Theory, Numerical Analysis, Differential Equations, Discrete Mathematics, Complex Analysis, and so much more.
+          </>
+        ),
       },
       {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
+        name: "SCET Certificate in Entrepreneurship & Technology",
+        description: (
+          <>
+            UC Berkeley College of Engineering
+          </>
+        ),
       },
     ],
   },
   technical: {
-    display: true, // set to false to hide this section
+    display: true,
     title: "Technical skills",
     skills: [
       {
-        title: "Figma",
+        title: "Programming Languages & Technologies",
         description: (
-          <>Able to prototype in Figma with Once UI with unnatural speed.</>
+          <>
+            Proficient in multiple programming languages and frameworks for systems programming, 
+            data analysis, machine learning, and scientific computing. Experience ranges from low-level 
+            embedded systems to high-level data science applications.
+          </>
         ),
         tags: [
-          {
-            name: "Figma",
-            icon: "figma",
-          },
+          { name: "Python" },
+          { name: "Java" },
+          { name: "C/C++" },
+          { name: "SQL" },
+          { name: "R" },
+          { name: "MATLAB" },
+          { name: "Assembly" },
+          { name: "Scheme" },
+          { name: "OpenCV" },
+          { name: "PyMC" },
+          { name: "NetworkX" },
         ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-02.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
-          {
-            src: "/images/projects/project-01/cover-03.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
+        images: [],
+      },
+      {
+        title: "Mathematics & Theoretical Foundations",
+        description: (
+          <>
+            Strong foundation in pure and applied mathematics, with particular expertise in algebra, 
+            analysis, discrete mathematics, and their applications to computer science and economics.
+          </>
+        ),
+        tags: [
+          { name: "Linear Algebra" },
+          { name: "Abstract Algebra" },
+          { name: "Group Theory" },
+          { name: "Graph Theory" },
+          { name: "Real Analysis" },
+          { name: "Complex Analysis" },
+          { name: "Probability Theory" },
+          { name: "Numerical Methods" },
+          { name: "Differential Equations" },
+          { name: "Discrete Mathematics" },
+        ],
+        images: [],
+      },
+      {
+        title: "Data Science & Machine Learning",
+        description: (
+          <>
+            Experience with statistical modeling, machine learning algorithms, and data analysis 
+            techniques applied to research problems in neuroscience, finance, and mathematics.
+          </>
+        ),
+        tags: [
+          { name: "Bayesian Statistics" },
+          { name: "Machine Learning" },
+          { name: "Data Visualization" },
+          { name: "Statistical Modeling" },
+          { name: "MCMC Methods" },
+          { name: "Decision Theory" },
+        ],
+        images: [],
+      },
+    ],
+  },
+  sideQuests: {
+    display: true,
+    title: "Side Quests",
+    quests: [
+      {
+        title: "Teaching 'The Mathematics of Cutting Cake'",
+        description: (
+          <>
+            Volunteered as a Splash instructor, teaching high school students about fair division 
+            algorithms and the mathematics behind cutting cake (and other divisible goods) fairly. 
+            Because who doesn't want to learn math through cake?
+          </>
+        ),
+        tags: [
+          { name: "Teaching" },
+          { name: "Mathematics" },
+          { name: "Volunteering" },
         ],
       },
       {
-        title: "Next.js",
+        title: "TechCrunch Speaker",
         description: (
-          <>Building next gen apps with Next.js + Once UI + Supabase.</>
+          <>
+            Spoke at TechCrunch with founder Amy Jain about an idea to democratize venture capital.
+          </>
         ),
         tags: [
-          {
-            name: "JavaScript",
-            icon: "javascript",
-          },
-          {
-            name: "Next.js",
-            icon: "nextjs",
-          },
-          {
-            name: "Supabase",
-            icon: "supabase",
-          },
+          { name: "Public Speaking" },
+          { name: "Technology" },
         ],
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          {
-            src: "/images/projects/project-01/cover-04.jpg",
-            alt: "Project image",
-            width: 16,
-            height: 9,
-          },
+      },
+      {
+        title: "Aspiring Motorcyclist",
+        description: (
+          <>
+            Got my motorcylce license in October 2025 and looking to buy one soon.
+          </>
+        ),
+        tags: [
+          { name: "Public Speaking" },
+          { name: "Technology" },
+        ],
+      },
+      {
+        title: "Cal Bhangra",
+        description: (
+          <>
+            Met some of my best friends here. Nights in a parking garage well spent.
+          </>
+        ),
+        tags: [
+          { name: "Dance" },
+          { name: "Shenanigans" },
+        ],
+      },
+      {
+        title: "Volleyball",
+        description: (
+          <>
+            I've played volleyball since I was 9, still in love with it. 
+          </>
+        ),
+        tags: [
+          { name: "Sports" },
+          { name: "Teamwork" },
+        ],
+      },
+      {
+        title: "Volunteering",
+        description: (
+          <>
+            Volunteered at Berkeley Math Tournament and Stanford Math Tournament, was mind blown by the kids. 
+            Hoping to become a volunteer teacher at Math Circles of Chiccago this year.
+          </>
+        ),
+        tags: [
+          { name: "Mathematics" },
+          { name: "Competition" },
+        ],
+      },
+      {
+        title: "Quantum Computing Symposium",
+        description: (
+          <>
+            Attended and participated in quantum computing symposium. Presented a poster reviewing quantum walks on hierarchical graphs as an
+            extension of the welded tree problem.
+          </>
+        ),
+        tags: [
+          { name: "Quantum Computing" },
+          { name: "Research" },
+        ],
+      },
+      {
+        title: "Cal Hacks 2022",
+        description: (
+          <>
+            Was my first taste of Bay Area energy.
+          </>
+        ),
+        tags: [
+          { name: "Hackathon" },
+          { name: "Programming" },
+        ],
+      },
+      {
+        title: "Stanford-Berkeley Research Meetup for Women in CS & EE",
+        description: (
+          <>
+            Met a lot of incredible researchers across the two campuses.
+          </>
+        ),
+        tags: [
+          { name: "Community" },
+          { name: "Research" },
+          { name: "Networking" },
         ],
       },
     ],
@@ -235,19 +353,19 @@ const about: About = {
 const blog: Blog = {
   path: "/blog",
   label: "Blog",
-  title: "Writing about design and tech...",
-  description: `Read what ${person.name} has been up to recently`,
-  // Create new blog posts by adding a new .mdx file to app/blog/posts
-  // All posts will be listed on the /blog route
+  title: "Blog",
+  description: `Read what ${person.name} has been writing about her latest side quests.`,
+  // Create new blog posts by adding a new .mdx file to src/app/blog/posts
+  // All posts will be automatically listed on the /blog route
 };
 
 const work: Work = {
   path: "/work",
   label: "Work",
   title: `Projects – ${person.name}`,
-  description: `Design and dev projects by ${person.name}`,
-  // Create new project pages by adding a new .mdx file to app/blog/posts
-  // All projects will be listed on the /home and /work routes
+  description: `Research projects, software development, and technical work by ${person.name}. Including expander graph visualization, Bayesian decision modeling, and CubeSat avionics systems.`,
+  // Create new project pages by adding a new .mdx file to src/app/work/projects
+  // All projects will be automatically listed on the /home and /work routes
 };
 
 const gallery: Gallery = {
@@ -255,9 +373,22 @@ const gallery: Gallery = {
   label: "Gallery",
   title: `Photo gallery – ${person.name}`,
   description: `A photo collection by ${person.name}`,
-  // Images by https://lorant.one
-  // These are placeholder images, replace with your own
+  // TODO: Replace with your own images
+  // Add images to public/images/gallery/ and reference them here
+  // Set orientation to "horizontal" or "vertical" based on image aspect ratio
   images: [
+    // TODO: Add your gallery images
+    // {
+    //   src: "/images/gallery/your-image-1.jpg",
+    //   alt: "Description of image",
+    //   orientation: "horizontal", // or "vertical"
+    // },
+    // {
+    //   src: "/images/gallery/your-image-2.jpg",
+    //   alt: "Description of image",
+    //   orientation: "vertical",
+    // },
+    // Keep placeholder images for now, or remove them and add your own
     {
       src: "/images/gallery/horizontal-1.jpg",
       alt: "image",
@@ -265,36 +396,6 @@ const gallery: Gallery = {
     },
     {
       src: "/images/gallery/vertical-4.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/horizontal-3.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-1.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/vertical-2.jpg",
-      alt: "image",
-      orientation: "vertical",
-    },
-    {
-      src: "/images/gallery/horizontal-2.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/horizontal-4.jpg",
-      alt: "image",
-      orientation: "horizontal",
-    },
-    {
-      src: "/images/gallery/vertical-3.jpg",
       alt: "image",
       orientation: "vertical",
     },

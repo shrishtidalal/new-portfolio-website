@@ -49,6 +49,11 @@ export default function About() {
       display: about.technical.display,
       items: about.technical.skills.map((skill) => skill.title),
     },
+    {
+      title: about.sideQuests.title,
+      display: about.sideQuests.display,
+      items: about.sideQuests.quests.map((quest) => quest.title),
+    },
   ];
   return (
     <Column maxWidth="m">
@@ -208,32 +213,38 @@ export default function About() {
                 {about.work.title}
               </Heading>
               <Column fillWidth gap="l" marginBottom="40">
-                {about.work.experiences.map((experience, index) => (
-                  <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
-                    <Row fillWidth horizontal="between" vertical="end" marginBottom="4">
-                      <Text id={experience.company} variant="heading-strong-l">
-                        {experience.company}
+                {about.work.experiences.map((experience, index) => {
+                  const roleParts = experience.role.split(" @ ");
+                  const roleTitle = roleParts[0];
+                  const companyName = roleParts[1];
+                  
+                  return (
+                    <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth gap="s">
+                      <Text id={experience.role} variant="heading-strong-l">
+                        {roleTitle}
+                        {companyName && (
+                          <>
+                            {" @ "}
+                            {experience.link ? (
+                              <a
+                                href={experience.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{ textDecoration: "underline", color: "inherit" }}
+                              >
+                                {companyName}
+                              </a>
+                            ) : (
+                              companyName
+                            )}
+                          </>
+                        )}
                       </Text>
-                      <Text variant="heading-default-xs" onBackground="neutral-weak">
-                        {experience.timeframe}
+                    {experience.achievements && experience.achievements.length > 0 && (
+                      <Text variant="body-default-m" onBackground="neutral-weak">
+                        {experience.achievements[0]}
                       </Text>
-                    </Row>
-                    <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
-                      {experience.role}
-                    </Text>
-                    <Column as="ul" gap="16">
-                      {experience.achievements.map(
-                        (achievement: React.ReactNode, index: number) => (
-                          <Text
-                            as="li"
-                            variant="body-default-m"
-                            key={`${experience.company}-${index}`}
-                          >
-                            {achievement}
-                          </Text>
-                        ),
-                      )}
-                    </Column>
+                    )}
                     {experience.images && experience.images.length > 0 && (
                       <Row fillWidth paddingTop="m" paddingLeft="40" gap="12" wrap>
                         {experience.images.map((image, index) => (
@@ -256,7 +267,8 @@ export default function About() {
                       </Row>
                     )}
                   </Column>
-                ))}
+                  );
+                })}
               </Column>
             </>
           )}
@@ -287,11 +299,11 @@ export default function About() {
                 as="h2"
                 id={about.technical.title}
                 variant="display-strong-s"
-                marginBottom="40"
+                marginBottom="m"
               >
                 {about.technical.title}
               </Heading>
-              <Column fillWidth gap="l">
+              <Column fillWidth gap="l" marginBottom="40">
                 {about.technical.skills.map((skill, index) => (
                   <Column key={`${skill}-${index}`} fillWidth gap="4">
                     <Text id={skill.title} variant="heading-strong-l">
@@ -327,6 +339,50 @@ export default function About() {
                               src={image.src}
                             />
                           </Row>
+                        ))}
+                      </Row>
+                    )}
+                  </Column>
+                ))}
+              </Column>
+            </>
+          )}
+
+          {about.sideQuests.display && (
+            <>
+              <Heading
+                as="h2"
+                id={about.sideQuests.title}
+                variant="display-strong-s"
+                marginBottom="m"
+              >
+                {about.sideQuests.title}
+              </Heading>
+              <Column fillWidth gap="l" marginBottom="40">
+                {about.sideQuests.quests.map((quest, index) => (
+                  <Column key={`${quest.title}-${index}`} fillWidth gap="4">
+                    <Row fillWidth horizontal="between" vertical="center">
+                      <Text id={quest.title} variant="heading-strong-l">
+                        {quest.title}
+                      </Text>
+                      {quest.link && (
+                        <IconButton
+                          href={quest.link}
+                          icon="arrowUpRightFromSquare"
+                          variant="secondary"
+                          size="s"
+                        />
+                      )}
+                    </Row>
+                    <Text variant="body-default-m" onBackground="neutral-weak">
+                      {quest.description}
+                    </Text>
+                    {quest.tags && quest.tags.length > 0 && (
+                      <Row wrap gap="8" paddingTop="8">
+                        {quest.tags.map((tag, tagIndex) => (
+                          <Tag key={`${quest.title}-${tagIndex}`} size="l" prefixIcon={tag.icon}>
+                            {tag.name}
+                          </Tag>
                         ))}
                       </Row>
                     )}

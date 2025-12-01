@@ -1,4 +1,5 @@
-import { IconName } from "@/resources/icons";
+import type { IconName } from "@/resources/icons";
+// zones is imported as a value because typeof zones is used in the type definition below
 import { zones } from "tzdata";
 
 /**
@@ -150,6 +151,8 @@ export interface About extends BasePageConfig {
       timeframe: string;
       /** Role or job title */
       role: string;
+      /** Optional link to company website */
+      link?: string;
       /** Achievements at the company */
       achievements: React.ReactNode[];
       /** Images related to the experience */
@@ -206,6 +209,27 @@ export interface About extends BasePageConfig {
         width: number;
         /** Image height ratio */
         height: number;
+      }>;
+    }>;
+  };
+  /** Random side quests section */
+  sideQuests: {
+    /** Whether to display side quests section */
+    display: boolean;
+    /** Title for the side quests section */
+    title: string;
+    /** List of side quests */
+    quests: Array<{
+      /** Quest title */
+      title: string;
+      /** Quest description */
+      description: React.ReactNode;
+      /** Optional link */
+      link?: string;
+      /** Optional tags */
+      tags?: Array<{
+        name: string;
+        icon?: string;
       }>;
     }>;
   };

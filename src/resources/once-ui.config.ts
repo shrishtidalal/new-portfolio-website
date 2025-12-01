@@ -14,14 +14,15 @@ import {
 import { home } from "./index";
 
 // IMPORTANT: Replace with your own domain address - it's used for SEO in meta tags and schema
-const baseURL: string = "https://demo.magic-portfolio.com";
+// TODO: Update with your actual domain (e.g., "https://yourname.com" or "https://yourname.vercel.app")
+const baseURL: string = "https://yourname.com";
 
 const routes: RoutesConfig = {
-  "/": true,
-  "/about": true,
-  "/work": true,
-  "/blog": true,
-  "/gallery": true,
+  "/": true, // Home page - always enabled
+  "/about": true, // TODO: Set to false to disable about page
+  "/work": true, // TODO: Set to false to disable work/projects page
+  "/blog": true, // TODO: Set to false to disable blog page
+  "/gallery": true, // TODO: Set to false to disable gallery page
 };
 
 const display: DisplayConfig = {
@@ -74,9 +75,9 @@ const fonts: FontsConfig = {
 // default customization applied to the HTML in the main layout.tsx
 const style: StyleConfig = {
   theme: "system", // dark | light | system
-  neutral: "gray", // sand | gray | slate | custom
-  brand: "cyan", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
-  accent: "red", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
+  neutral: "sand", // sand | gray | slate | custom
+  brand: "indigo",  // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
+  accent: "blue", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
   solid: "contrast", // color | contrast
   solidStyle: "flat", // flat | plastic
   border: "playful", // rounded | playful | conservative
@@ -141,6 +142,8 @@ const effects: EffectsConfig = {
 };
 
 const mailchimp: MailchimpConfig = {
+  // TODO: Replace with your Mailchimp subscription URL
+  // Get this from your Mailchimp account: Lists > Your List > Signup forms > Embedded forms
   action: "https://url/subscribe/post?parameters",
   effects: {
     mask: {
@@ -184,20 +187,19 @@ const mailchimp: MailchimpConfig = {
   },
 };
 
-// default schema data
+// default schema data - used for SEO and structured data
 const schema: SchemaConfig = {
   logo: "",
-  type: "Organization",
-  name: "Once UI",
+  type: "Person",
+  name: "Shrishti Dalal",
   description: home.description,
-  email: "lorant@once-ui.com",
+  email: "shrishti.dalal@berkeley.edu",
 };
 
-// social links
+// social links - used for SEO schema markup
 const sameAs: SameAsConfig = {
-  threads: "https://www.threads.com/@once_ui",
-  linkedin: "https://www.linkedin.com/company/once-ui/",
-  discord: "https://discord.com/invite/5EyAQ4eNdS",
+  linkedin: "https://linkedin.com/in/shrishti-dalal",
+  // Add other platforms as needed
 };
 
 // social sharing configuration for blog posts
