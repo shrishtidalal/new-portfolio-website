@@ -198,8 +198,9 @@ const schema: SchemaConfig = {
 
 // social links - used for SEO schema markup
 const sameAs: SameAsConfig = {
+  threads: "",
   linkedin: "https://linkedin.com/in/shrishti-dalal",
-  // Add other platforms as needed
+  discord: "",
 };
 
 // social sharing configuration for blog posts

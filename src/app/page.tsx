@@ -74,7 +74,7 @@ export default function Home() {
             s={{ direction: "column", gap: "l" }}
           >
             {/* Left side: Image and Quote */}
-            <Column flex={1} horizontal="center" align="center" gap="l" minWidth="200">
+            <Column flex={1} horizontal="center" align="center" gap="l" minWidth={200}>
               <Column horizontal="center" align="center" gap="m" maxWidth="s">
                 <Media
                   src="/images/rubiks_cube_cayley.png"
