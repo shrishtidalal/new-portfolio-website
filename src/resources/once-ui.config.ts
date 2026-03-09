@@ -20,7 +20,7 @@ const baseURL: string = "https://yourname.com";
 const routes: RoutesConfig = {
   "/": true, // Home page - always enabled
   "/about": true, // TODO: Set to false to disable about page
-  "/work": true, // TODO: Set to false to disable work/projects page
+  "/work": false, // TODO: Set to false to disable work/projects page
   "/blog": true, // TODO: Set to false to disable blog page
   "/gallery": true, // TODO: Set to false to disable gallery page
 };
