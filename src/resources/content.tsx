@@ -49,7 +49,7 @@ const home: Home = {
   path: "/",
   image: "/images/og/home.jpg",
   label: "Home",
-  title: `${person.name} - Academic Portfolio`,
+  title: `${person.name} - Portfolio`,
   description: `Portfolio of ${person.name}, ${person.role} at UC Berkeley. Research, projects, and work in mathematics, computer science, and economics.`,
   headline: <>Math. Trading. Software. Education. </>,
   featured: {
