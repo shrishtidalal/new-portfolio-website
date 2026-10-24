@@ -363,7 +363,18 @@ export default function About() {
                   <Column key={`${quest.title}-${index}`} fillWidth gap="4">
                     <Row fillWidth horizontal="between" vertical="center">
                       <Text id={quest.title} variant="heading-strong-l">
-                        {quest.title}
+                        {quest.link ? (
+                          <a
+                            href={quest.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{ textDecoration: "underline", color: "inherit" }}
+                          >
+                            {quest.title}
+                          </a>
+                        ) : (
+                          quest.title
+                        )}
                       </Text>
                       {quest.link && (
                         <IconButton

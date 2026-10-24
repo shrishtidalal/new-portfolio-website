@@ -234,6 +234,7 @@ const about: About = {
     quests: [
       {
         title: "Teaching 'The Mathematics of Cutting Cake'",
+        link: "/images/Cake_Cutting_Splash_Presentation.pdf",
         description: (
           <>
             Volunteered as a Splash instructor, teaching high school students about fair division 
