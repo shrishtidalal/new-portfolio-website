@@ -237,7 +237,7 @@ const about: About = {
         description: (
           <>
             Volunteered as a Splash instructor, teaching high school students about fair division 
-            algorithms and the mathematics behind cutting cake (and other divisible goods) fairly. 
+            algorithms and the <a href="https://berkeley.learningu.org/learn/Splash/2025_Spring/catalog#class_1406" target="_blank" rel="noopener noreferrer">mathematics behind cutting cake</a> (and other divisible goods) fairly. 
             Because who doesn't want to learn math through cake?
           </>
         ),
